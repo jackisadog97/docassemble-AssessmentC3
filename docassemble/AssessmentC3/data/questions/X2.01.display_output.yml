@@ -9,9 +9,8 @@ content: |
 ---
 objects:
   HAAdisplay_pets: DAList.using(there_are_any=True, auto_gather=False)
-  LMdisplay_abtsi: DAList.using(there_are_any=True, auto_gather=False)
   HAAdisplay_other: DAList.using(there_are_any=True, auto_gather=False)
-
+  LM_ABO: DAList.using(there_are_any=True, auto_gather=False)
 ---
 # The following code blocks each extract a set of agencies
 # out of the qualifying agencies for display in a separate
@@ -44,25 +43,20 @@ code: |
       pass
   
   HAAdisplay_pets.gathered = True
+  
 ---
-#MY CODE FROM HERE
 code: |
-  LMdisplay_abtsi.clear()
+  LM_ABO.clear()
   for HAAagency in HAAqualifying_agencies:
     if HAAagency.item('printed') == True:
       # Don't do anything if already printed
-      pass
+       pass
     elif HAAagency.item('atsi_test') == True:
-      # We add the text to display in the display list
-      HAAdisplay_pets.append(HAAagency)
-      # And mark it as displayed
+      LM_ABO.append(HAAagency)
       HAAagency['printed'] = True
     else:
-      # Otherwise don't do anything
       pass
-  
-  LMdisplay_abtsi.gathered = True
-
+  LM_ABO.gathered = True
 # Other categories go here...
 # This is an exercise for students
 ---

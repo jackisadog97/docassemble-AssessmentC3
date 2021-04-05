@@ -75,8 +75,11 @@ subquestion:  |
   % endif
   
   % if HAAabor:
-  ### Services for Aboriginal and Torres Strait Islanders
-  %for LM
+  ### Services for Aboriginals and Torres Straight Islanders
+  %for HAAdisplay_entry in LM_ABO:
+  ${ HAAdisplay_entry['display_record'].show() }
+  %endfor
+  % endif
   
   % if HAAfamily == 'singles':
   ### Services for you
