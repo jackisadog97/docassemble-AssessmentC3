@@ -11,6 +11,7 @@ objects:
   HAAdisplay_pets: DAList.using(there_are_any=True, auto_gather=False)
   HAAdisplay_other: DAList.using(there_are_any=True, auto_gather=False)
   LM_ABO: DAList.using(there_are_any=True, auto_gather=False)
+  LMdisplay_gender: DAList.using(there_are_any=True, auto_gather=False)
 ---
 # The following code blocks each extract a set of agencies
 # out of the qualifying agencies for display in a separate
@@ -59,6 +60,20 @@ code: |
   LM_ABO.gathered = True
 # Other categories go here...
 # This is an exercise for students
+---
+code: |
+  LMdisplay_gender.clear()
+  for HAAagency in HAAqualifying_agencies:
+    if HAAagency.item('printed') == True:
+      # Don't do anything if already printed
+       pass
+    elif HAAagency.item('gender_specific') == True:
+      LMdisplay_gender.append(HAAagency)
+      HAAagency['printed'] = True
+    else:
+      pass
+  LMdisplay_gender.gathered = True
+
 ---
 # Finally, we display everything else.  Everything else
 # is every record in HAAqualifying_agencies that has

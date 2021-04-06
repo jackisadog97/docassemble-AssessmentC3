@@ -14,7 +14,7 @@ code: |
     # - Accommodation for single or family
     # OR
     # - manages pets 
-    if ( HAAagency['pets_test'] ) or ( HAAagency['age_test'] and HAAagency['gender_test'] and HAAagency['location_test'] and HAAagency['atsi_test'] and HAAagency['families_test'] ):
+    if ( HAAagency['pets_test'] ) or ( HAAagency['gender_specific'] ) or ( HAAagency['age_test'] and HAAagency['gender_test'] and HAAagency['location_test'] and HAAagency['atsi_test'] and HAAagency['families_test'] ):
       # Append to qualifying agencies
       HAAqualifying_agencies.append(HAAagency)
       MJFi += 1
@@ -177,4 +177,4 @@ code: |
   else:
     HAA_agencylist[i]['family_specific'] = False
 ---
-#specifaclly aboriginal services
+

@@ -81,6 +81,14 @@ subquestion:  |
   %endfor
   % endif
   
+  %if HAAgender != 'other':
+  ### Gender Specific Services
+  %for HAAdisplay_entry in LMdisplay_gender:
+  ${ HAAdisplay_entry['display_record'].show() }
+  %endfor
+ 
+  %endif
+  
   % if HAAfamily == 'singles':
   ### Services for you
   % else:
